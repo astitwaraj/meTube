@@ -1,18 +1,25 @@
-import React, { useEffect } from 'react';
-import { VIDEO_API } from '../Utils/const';
+import React, { useEffect, useState } from "react";
+import { VIDEO_API } from "../Utils/const";
+import VideoCard from "./VideoCard";
 
 const Body = () => {
-  const videos = async() => {
+  const [Vid_deet, setVid_deet] = useState([]);
+  const videos = async () => {
     const data = await fetch(VIDEO_API);
     const json = await data.json();
-    console.log(json)
-  }
+    setVid_deet(json.items);
+  };
   useEffect(() => {
-    videos()
-  },[])
-  return (
-    <div>Body</div>
-  )
-}
+    videos();
+  }, []);
 
-export default Body
+  return (
+    <div className="flex flex-row flex-wrap">
+      {Vid_deet.map((vidlist) => (
+        <VideoCard key={vidlist.id} video={vidlist} />
+      ))}
+    </div>
+  );
+};
+
+export default Body;
