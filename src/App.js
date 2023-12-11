@@ -1,9 +1,10 @@
 import { Provider } from "react-redux";
-import Body from "./Components/Body";
+import { Outlet } from "react-router";
 import Header from "./Components/Header";
 import SideBar from "./Components/SideBar";
 import appstore from "./Utils/appstore";
 import "./index.css";
+
 function App() {
   return (
     <div>
@@ -11,7 +12,7 @@ function App() {
         <Header />
         <div className="flex">
           <SideBar />
-          <Body />
+          <Outlet />
         </div>
       </Provider>
     </div>
