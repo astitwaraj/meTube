@@ -16,7 +16,7 @@ const Body = () => {
   }, []);
 
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex-1 flex flex-row flex-wrap">
       {Vid_deet.map((vidlist) => (
         <Link key={vidlist.id} to={"/watch?v=" + vidlist.id}>
           <VideoCard key={vidlist.id} video={vidlist} />

@@ -3,10 +3,7 @@ const formatdate = (date) => {
   const currDate = new Date();
   const diffDate = currDate - givenDate;
   const dayDiff = Math.floor(diffDate / (1000 * 60 * 60 * 24));
-  console.log(givenDate);
-  console.log(currDate);
-  console.log(diffDate);
-  console.log(dayDiff);
+
 
   if (dayDiff === 0) return "Just now";
   else if (dayDiff < 7) return dayDiff + " days ago";

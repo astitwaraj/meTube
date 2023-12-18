@@ -9,9 +9,11 @@ import Sub from "../Images/subscriptions.ico";
 import App from "../Images/youtube-apps.ico";
 import Mus from "../Images/youtube-music.ico";
 const SideBar = () => {
-  const x = useSelector((store)=>store.sidebar.show)
+  
+  const x = useSelector((store) => store.sidebar.show);
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col  h-full bg-white">
       {x ? (
         <>
           <div className="mr-2">
@@ -50,34 +52,34 @@ const SideBar = () => {
       ) : (
         <>
           <Link to={"/"}>
-            <div className="flex  active:bg-gray-300 hover:bg-gray-200 m-1 items-center rounded-lg py-2 mt-2 px-3 ">
+            <div className="flex  active:bg-gray-300 bg-gray-200 m-1 items-center rounded-lg py-2 mt-2 px-3 ">
               <img className="w-7 ml-[5px] mr-6 " src={Home} alt="" />
-              <h1 className="text-base font-semibold pr-20 mr-4">Home</h1>
+              <h1 className="text-base font-semibold pr-16 mr-4">Home</h1>
             </div>
           </Link>
           <div className="flex  active:bg-gray-300 hover:bg-gray-200 m-1 items-center rounded-lg py-2 px-3">
             <img className="w-7 ml-[5px] mr-6 " src={Exp} alt="" />
-            <h1 className="text-sm font-semibold pr-20 mr-4">Explore</h1>
+            <h1 className="text-sm font-semibold pr-16 mr-4">Explore</h1>
           </div>
           <div className="flex  active:bg-gray-300 hover:bg-gray-200 m-1 items-center rounded-lg py-2 px-3">
             <img className="w-7 ml-[5px] mr-6 " src={Lib} alt="" />
-            <h1 className="text-sm font-semibold pr-20 mr-4">Library</h1>
+            <h1 className="text-sm font-semibold pr-16 mr-4">Library</h1>
           </div>
           <div className="flex  active:bg-gray-300 hover:bg-gray-200 m-1 items-center rounded-lg py-2 px-3">
             <img className="w-7 ml-[5px] mr-6 " src={Ori} alt="" />
-            <h1 className="text-sm font-semibold pr-20 mr-4">Orignals</h1>
+            <h1 className="text-sm font-semibold pr-16 mr-4">Orignals</h1>
           </div>
           <div className="flex  active:bg-gray-300 hover:bg-gray-200 m-1 items-center rounded-lg py-2 px-3">
             <img className="w-7 ml-[5px] mr-6  " src={App} alt="" />
-            <h1 className="text-sm font-semibold pr-20 mr-4">Apps</h1>
+            <h1 className="text-sm font-semibold pr-16 mr-4">Apps</h1>
           </div>
           <div className="flex  active:bg-gray-300 hover:bg-gray-200 m-1 items-center rounded-lg py-2 px-3">
             <img className="w-7 ml-[5px] mr-6 " src={Mus} alt="" />
-            <h1 className="text-sm font-semibold pr-20 mr-4">Music</h1>
+            <h1 className="text-sm font-semibold pr-16 mr-4">Music</h1>
           </div>
           <div className="flex  active:bg-gray-300 hover:bg-gray-200 m-1 items-center rounded-lg py-2 px-3">
             <img className="w-7 ml-[5px] mr-6 " src={Sub} alt="" />
-            <h1 className="text-sm font-semibold pr-20 mr-4">Subs</h1>
+            <h1 className="text-sm font-semibold pr-16 mr-4">Subs</h1>
           </div>
         </>
       )}

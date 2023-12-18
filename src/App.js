@@ -10,7 +10,7 @@ function App() {
     <div>
       <Provider store={appstore}>
         <Header />
-        <div className="flex">
+        <div className="flex ">
           <SideBar />
           <Outlet />
         </div>
