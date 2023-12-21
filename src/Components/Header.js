@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Hamburger } from "../Images/hamburger-menu.svg";
 import { ReactComponent as Noti } from "../Images/notifications.svg";
 import Profile from "../Images/profileLogo.jpg";
@@ -8,10 +8,12 @@ import { ReactComponent as Recorder } from "../Images/upload.svg";
 import { ReactComponent as Mic } from "../Images/voice-search-icon.svg";
 import { ReactComponent as Logo } from "../Images/youtube-logo.svg";
 import { AUTO_COMPLETE_API } from "../Utils/const";
+import { saveChache } from "../Utils/searchCache";
 import { toggle } from "../Utils/sidebarSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const cacheData = useSelector((store) => store.cache.cacheResult);
   const handleSidebar = () => {
     dispatch(toggle());
   };
@@ -23,9 +25,21 @@ const Header = () => {
     const data = await fetch(AUTO_COMPLETE_API + query);
     const json = await data.json();
     setsuggestion(json[1]);
+    dispatch(
+      saveChache({
+        [query]: json[1],
+      })
+    );
   };
   useEffect(() => {
-    const timer = setTimeout(() => getSuggestion(), 200);
+    const timer = setTimeout(() => {
+      if (cacheData[query]) {
+        setsuggestion(cacheData[query]);
+      } else {
+        getSuggestion();
+      }
+    }, 200);
+
     return () => {
       clearTimeout(timer);
     };
