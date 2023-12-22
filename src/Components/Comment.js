@@ -21,7 +21,7 @@ const Comment = ({ addReply, comment }) => {
     <>
       <div className="flex flex-row">
         <div>
-          <img className="w-7" src={CommentPic} alt="" />
+          <img className="w-5" src={CommentPic} alt="" />
         </div>
         <div>
           <ul key={comment.id}>
@@ -46,7 +46,7 @@ const Comment = ({ addReply, comment }) => {
                 <ActionBttn action={"Cancel"} handleClick={handleCanclebtn} />
               </>
             )}
-            <ul className="ml-10">
+            <ul className="ml-7">
               {comment.children.length > 0 &&
                 comment.children.map((childComment) => (
                   <Comment
