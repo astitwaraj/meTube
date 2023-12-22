@@ -1,26 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { useDispatch, useSelector } from "react-redux";
-import { saveChat } from "../Utils/chatSlice";
-import generateName from "../useHooks/randomName";
-import generateText from "../useHooks/randomString";
+import { useSelector } from "react-redux";
+import useLiveChat from "../useHooks/useLiveChat";
 import ChatMessages from "./ChatMessages";
 export const LiveChat = () => {
-  const dispatch = useDispatch();
   const chatData = useSelector((store) => store.chat.conversation);
-  useEffect(() => {
-    const timedChat = setInterval(() => {
-      dispatch(
-        saveChat({
-          name: generateName(),
-          text: generateText(10),
-        })
-      );
-    }, 500);
-    return () => {
-      clearInterval(timedChat);
-    };
-  }, []);
+  useLiveChat();
   return (
     <>
       <div className="flex flex-col-reverse">
